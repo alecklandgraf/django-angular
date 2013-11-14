@@ -32,12 +32,18 @@ The controller examples from :ref:`JSONResponseMixin <dispatch-ajax-request-exam
 
   function MyFormCtrl($scope, $http, url) {
       $scope.submit = function() {
-          $http.post(url.this_view_url, $scope.my_prefix)
+          $http.post(urls.this_view_url, $scope.my_prefix)
               .success(function(out_data) {
                   // do something
               });
       }
   }
+  
+Likewise, the ``urls.that_view_url`` can be used in an html partial that you may want in an ``href`` in place of the Django ``url`` template tag.
+
+.. code-block:: html
+
+  <a href="{$ urls.that_view_url $}" class="btn btn-primary btn-lg" role="button">Upload File</a>
 
 List all URLs which belong to a namespace
 ------------------------------------------
